@@ -11,20 +11,10 @@
 		618BF34A2061A87A0074963D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618BF3492061A87A0074963D /* ViewController.swift */; };
 		618BF34C2061A87A0074963D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 618BF34B2061A87A0074963D /* Assets.xcassets */; };
 		618BF34F2061A87A0074963D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 618BF34D2061A87A0074963D /* Main.storyboard */; };
-		618BF3582061A8A40074963D /* ShellComand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618BF3572061A8A40074963D /* ShellComand.swift */; };
 		618BF35A2061A8DB0074963D /* Comands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618BF3592061A8DB0074963D /* Comands.swift */; };
 		618BF35C2061A8F30074963D /* Prasers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618BF35B2061A8F30074963D /* Prasers.swift */; };
 		618BF35E2061A9240074963D /* IPLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618BF35D2061A9240074963D /* IPLocator.swift */; };
-		618BF3612061A9710074963D /* FireWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618BF3602061A9710074963D /* FireWall.swift */; };
-		618BF3632061E0F60074963D /* Comand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618BF3622061E0F60074963D /* Comand.swift */; };
-		61CB2EBF2062A0A300782D44 /* FireWallStateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CB2EB82062A0A200782D44 /* FireWallStateOperation.swift */; };
-		61CB2EC02062A0A300782D44 /* ParseNetStatOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CB2EB92062A0A200782D44 /* ParseNetStatOperation.swift */; };
-		61CB2EC12062A0A300782D44 /* TaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CB2EBA2062A0A200782D44 /* TaskOperation.swift */; };
-		61CB2EC22062A0A300782D44 /* NetStatQueues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CB2EBB2062A0A200782D44 /* NetStatQueues.swift */; };
-		61CB2EC32062A0A300782D44 /* SystemComandOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CB2EBC2062A0A200782D44 /* SystemComandOperation.swift */; };
-		61CB2EC42062A0A300782D44 /* ParseFireWallStateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CB2EBD2062A0A200782D44 /* ParseFireWallStateOperation.swift */; };
-		61CB2EC52062A0A300782D44 /* NetStatOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CB2EBE2062A0A200782D44 /* NetStatOperation.swift */; };
-		61CB2EC72062A52300782D44 /* SampleCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CB2EC62062A52300782D44 /* SampleCodes.swift */; };
+		61C0D7A42064608A00BCF3CF /* ComandRuner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C0D7A32064608A00BCF3CF /* ComandRuner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,20 +25,10 @@
 		618BF34E2061A87A0074963D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		618BF3502061A87A0074963D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		618BF3512061A87A0074963D /* Prueba_Timer_shellComand_Operations.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Prueba_Timer_shellComand_Operations.entitlements; sourceTree = "<group>"; };
-		618BF3572061A8A40074963D /* ShellComand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShellComand.swift; sourceTree = "<group>"; };
 		618BF3592061A8DB0074963D /* Comands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comands.swift; sourceTree = "<group>"; };
 		618BF35B2061A8F30074963D /* Prasers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prasers.swift; sourceTree = "<group>"; };
 		618BF35D2061A9240074963D /* IPLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPLocator.swift; sourceTree = "<group>"; };
-		618BF3602061A9710074963D /* FireWall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireWall.swift; sourceTree = "<group>"; };
-		618BF3622061E0F60074963D /* Comand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comand.swift; sourceTree = "<group>"; };
-		61CB2EB82062A0A200782D44 /* FireWallStateOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireWallStateOperation.swift; sourceTree = "<group>"; };
-		61CB2EB92062A0A200782D44 /* ParseNetStatOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseNetStatOperation.swift; sourceTree = "<group>"; };
-		61CB2EBA2062A0A200782D44 /* TaskOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskOperation.swift; sourceTree = "<group>"; };
-		61CB2EBB2062A0A200782D44 /* NetStatQueues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetStatQueues.swift; sourceTree = "<group>"; };
-		61CB2EBC2062A0A200782D44 /* SystemComandOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemComandOperation.swift; sourceTree = "<group>"; };
-		61CB2EBD2062A0A200782D44 /* ParseFireWallStateOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseFireWallStateOperation.swift; sourceTree = "<group>"; };
-		61CB2EBE2062A0A200782D44 /* NetStatOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetStatOperation.swift; sourceTree = "<group>"; };
-		61CB2EC62062A52300782D44 /* SampleCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCodes.swift; sourceTree = "<group>"; };
+		61C0D7A32064608A00BCF3CF /* ComandRuner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComandRuner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,14 +63,11 @@
 			children = (
 				618BF3472061A87A0074963D /* AppDelegate.swift */,
 				618BF3492061A87A0074963D /* ViewController.swift */,
-				618BF3602061A9710074963D /* FireWall.swift */,
-				61CB2EB72062A0A200782D44 /* Operations */,
 				618BF35F2061A9320074963D /* Comands */,
 				618BF34B2061A87A0074963D /* Assets.xcassets */,
 				618BF34D2061A87A0074963D /* Main.storyboard */,
 				618BF3502061A87A0074963D /* Info.plist */,
 				618BF3512061A87A0074963D /* Prueba_Timer_shellComand_Operations.entitlements */,
-				61CB2EC62062A52300782D44 /* SampleCodes.swift */,
 			);
 			path = "Prueba-Timer-shellComand-Operations";
 			sourceTree = "<group>";
@@ -98,27 +75,12 @@
 		618BF35F2061A9320074963D /* Comands */ = {
 			isa = PBXGroup;
 			children = (
-				618BF3572061A8A40074963D /* ShellComand.swift */,
+				61C0D7A32064608A00BCF3CF /* ComandRuner.swift */,
 				618BF3592061A8DB0074963D /* Comands.swift */,
-				618BF3622061E0F60074963D /* Comand.swift */,
 				618BF35B2061A8F30074963D /* Prasers.swift */,
 				618BF35D2061A9240074963D /* IPLocator.swift */,
 			);
 			path = Comands;
-			sourceTree = "<group>";
-		};
-		61CB2EB72062A0A200782D44 /* Operations */ = {
-			isa = PBXGroup;
-			children = (
-				61CB2EB82062A0A200782D44 /* FireWallStateOperation.swift */,
-				61CB2EB92062A0A200782D44 /* ParseNetStatOperation.swift */,
-				61CB2EBA2062A0A200782D44 /* TaskOperation.swift */,
-				61CB2EBB2062A0A200782D44 /* NetStatQueues.swift */,
-				61CB2EBC2062A0A200782D44 /* SystemComandOperation.swift */,
-				61CB2EBD2062A0A200782D44 /* ParseFireWallStateOperation.swift */,
-				61CB2EBE2062A0A200782D44 /* NetStatOperation.swift */,
-			);
-			path = Operations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,21 +159,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				618BF3582061A8A40074963D /* ShellComand.swift in Sources */,
-				61CB2EC22062A0A300782D44 /* NetStatQueues.swift in Sources */,
-				618BF3632061E0F60074963D /* Comand.swift in Sources */,
-				61CB2EC32062A0A300782D44 /* SystemComandOperation.swift in Sources */,
 				618BF35A2061A8DB0074963D /* Comands.swift in Sources */,
-				61CB2EC02062A0A300782D44 /* ParseNetStatOperation.swift in Sources */,
-				61CB2EC12062A0A300782D44 /* TaskOperation.swift in Sources */,
-				61CB2EC42062A0A300782D44 /* ParseFireWallStateOperation.swift in Sources */,
+				61C0D7A42064608A00BCF3CF /* ComandRuner.swift in Sources */,
 				618BF34A2061A87A0074963D /* ViewController.swift in Sources */,
 				618BF35C2061A8F30074963D /* Prasers.swift in Sources */,
-				618BF3612061A9710074963D /* FireWall.swift in Sources */,
-				61CB2EBF2062A0A300782D44 /* FireWallStateOperation.swift in Sources */,
-				61CB2EC72062A52300782D44 /* SampleCodes.swift in Sources */,
 				618BF3482061A87A0074963D /* AppDelegate.swift in Sources */,
-				61CB2EC52062A0A300782D44 /* NetStatOperation.swift in Sources */,
 				618BF35E2061A9240074963D /* IPLocator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,7 +23,7 @@ struct GenericPraser:Prasable   {
 }
 
 
-class StatePraser:Prasable   {
+struct StatePraser:Prasable   {
     
     func prase(comandResult:String) -> Any {
         var state:Bool!
@@ -41,7 +41,7 @@ class StatePraser:Prasable   {
 }
 
 
-class netStatPraser:Prasable   {
+struct netStatPraser:Prasable   {
     
     func prase(comandResult:String) -> Any {
         var result:String!

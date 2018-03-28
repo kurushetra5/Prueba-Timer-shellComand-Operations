@@ -10,14 +10,27 @@ import Foundation
 
 
 
-class FireWallStateOperation: TaskOperation {
+class FireWallStateOperation: TaskOperation,ComandRunerDelegate {
+    
+    func comand(finishWith data: String) {
+        self.executing(false)
+        self.finish(true)
+    }
+    
+    func comand(type: String, finishWith: String) {
+        self.executing(false)
+        self.finish(true)
+    }
+    
     
     var responseData: String?
+    public var comandRuner:ComandRuner = ComandRuner()
     
     
-    override init() {
+    override  init() {
         
     }
+    
     
     override func main() {
         guard isCancelled == false else {
@@ -25,11 +38,20 @@ class FireWallStateOperation: TaskOperation {
             return
         }
         
-        executing(true)
+        
         //        provider.restCall(urlString: urlString) { (data) in
-        self.responseData = "FireWallStateOperation"
-        self.executing(false)
-        self.finish(true)
+         comandRuner.comandRunerDelegate = self
+         comandRuner.runComand(type:"fireWallState", ip: nil)
+        self.responseData = "FireWallStateOperation running"
+        executing(true)
+//        self.executing(false)
+//        self.finish(true)
         //        }
     }
+    
+    
+    
+    
+    
+    
 }

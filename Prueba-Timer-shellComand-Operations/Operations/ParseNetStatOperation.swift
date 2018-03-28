@@ -12,7 +12,7 @@ import Foundation
 class ParseNetStatOperation: TaskOperation {
     
     var responseData: String?
-    
+    public var comandRuner:ComandRuner = ComandRuner()
     
     override init() {
         
@@ -26,9 +26,13 @@ class ParseNetStatOperation: TaskOperation {
         
         executing(true)
         //        provider.restCall(urlString: urlString) { (data) in
-        //            self.responseData = data
-        //            self.executing(false)
-        //            self.finish(true)
+                     self.responseData =  "NetStatOperation runing"
+        
+//        comandRuner.runComand(type:"netStat", ip: nil)
+        
+        
+                  self.executing(false)
+                   self.finish(true)
         //        }
     }
 }

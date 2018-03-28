@@ -19,6 +19,7 @@ protocol Comand  {
     var taskPath:String{get set}
     var taskArgs:[String]{get set}
     var type:ComandType{get set}
+    
 }
 
 protocol ComandIp:Comand  {
@@ -48,33 +49,6 @@ protocol comandDelegate   {
 
 
 
-class  AppTaskComand:ShellComandDelegate  {
-    
-    var delegate: comandDelegate!
-    private var comand:Comand!
-    private var shellComand:ShellComand!
-    var praser:Prasable!
-    
-    
-    init(comand:Comand, praser:Prasable, delegate:comandDelegate) {
-        shellComand = ShellComand()
-        self.comand = comand
-        self.shellComand.shellComandDelegate = self
-        self.shellComand.comandType = comand.type
-        self.praser = praser
-        self.delegate = delegate
-    }
-    
-    public func run() {
-//         self.shellComand = ShellComand()
-//         self.shellComand.shellComandDelegate = self
-//         self.shellComand.comandType = comand.type
-        
-        shellComand.run(comand:comand)
-    }
-    
-    
-}
 
 
 

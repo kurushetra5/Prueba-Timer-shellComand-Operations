@@ -14,13 +14,15 @@ import Foundation
 //MARK: --------  Prorocol Delegate  ---------------
 protocol FireWallDelegate {
 //    func fireWallEstablished(conections:[ConectionNode])
-    func fireWallEstablished(ips:[NetStatConection])
-    func fireWallBlocked(ips:[NetStatConection])
-    func fireWall(state:Bool)
-    func fireWallDidUnblockIp()
-    func fireWallDidBlockIp()
-    func fireWallDidStart()
-    func fireWallDidStop()
+//    func fireWallEstablished(ips:[NetStatConection])
+//    func fireWallBlocked(ips:[NetStatConection])
+//    func fireWall(state:Bool)
+//    func fireWallDidUnblockIp()
+//    func fireWallDidBlockIp()
+//    func fireWallDidStart()
+//    func fireWallDidStop()
+    func finish(data:[String], type:ComandType)
+    
 }
 
 
@@ -28,75 +30,56 @@ protocol FireWallDelegate {
 
 
 
-
 //MARK: --------  Class  FireWall  ---------------
-class FireWall: ComandRunerDelegate,ComandRunerDelegate2 ,comandDelegate {
+class FireWall  {
     
-    
-    
-    
-    //MARK: --------  Class  VARS  ---------------
-    public var comandRuner:ComandRuner = ComandRuner()
-    public var comandRuner2:ComandRuner = ComandRuner()
-    
-    
-    
-    var queue1:DispatchQueue!
-    var queue2:DispatchQueue!
-    let netStat = NetStat()
-    let netPraser = netStatPraser()
-    
-    var  netStat2:AppTaskComand!
     var timer:Timer!
     var timer2:Timer!
-    
-    
-//    private var ipsManager:IpsManager = IpsManager()
-//    private var needUpdateState:Bool = true
-//    private var needUpdateConections:Bool = true
-//    private var needUpdateBlockedIps:Bool = false
-//    private var isTimerRuning:Bool = false
     var fireWallDelegate:FireWallDelegate!
     
-   
-    
-    
-    
-    init() {
-        comandRuner.comandRunerDelegate = self //FIXME: dosobjetos de lo mismo delegados se mezclan las cosas .....
-        comandRuner2.comandRunerDelegate2 = self
+   init() {
+ 
       print("init()FireWall ")
     }
     
     
     
-    
-    
-    
-    
-    public func startBackgroundTimer() {
+
+    func runComand(type:Comand, completion:@escaping ([String],ComandType) -> Void) {
         
-//        netStat2 = AppTaskComand(comand:netStat, praser:netPraser, delegate:self)
-//        backgroundTimer()
-        print("start BackgroundTimer()")
-        backgroundTimer()
-    }
-    
-    public func stopBackgroundTimer() {
-        print("stop BackgroundTimer()")
-//        netStat2 = AppTaskComand(comand:netStat, praser:netPraser, delegate:self)
-//        backgroundTimer()
+        let task = Process()
+        task.launchPath = type.taskPath
+        task.arguments = type.taskArgs
+        task.standardOutput = Pipe()
         
+        task.terminationHandler = { task in
+            guard task.terminationStatus == 0
+                else {
+                    NSLog("The process fail to operate.")
+                    return
+            }
+            
+            guard let data = (task.standardOutput as? Pipe)?.fileHandleForReading.availableData,
+                data.count > 0,
+                let s = String(data: data, encoding: .utf8)
+                else { return }
+            
+            let dataResult = s.components(separatedBy: "\n").filter{ !$0.contains("/.git/") }
+            
+            DispatchQueue.main.sync {
+                completion(dataResult,type.type)
+            }
+        }
+        task.launch()
     }
     
     
     
-    public   func operations()  {
-        print("operations()")
-    }
     
     
+   
     
+   
     
     
     
@@ -104,20 +87,20 @@ class FireWall: ComandRunerDelegate,ComandRunerDelegate2 ,comandDelegate {
     
     public  func runcomand1(comand:Comand) {
         
+        
         print("runcomand 1")
-//        let infoComand = AppTaskComand(comand:comand,
-//                                          praser:GenericPraser(),
-//                                          delegate: self)
-//        infoComand.run()
+        runComand(type:NsLookup(withIp:"80.33.22.2")) { (results, type) in
+//            print(results)
+//            print(type)
+            self.fireWallDelegate?.finish(data: results, type: type)
+        }
+ 
     }
     
    public func runcomand2(comand:Comand) {
         
         print("runcomand 2")
-//        let infoComand = AppTaskComand(comand:comand,
-//                                       praser:GenericPraser(),
-//                                       delegate: self)
-//        infoComand.run()
+ 
     }
     
     
@@ -125,20 +108,14 @@ class FireWall: ComandRunerDelegate,ComandRunerDelegate2 ,comandDelegate {
     public func  comand1(comand:Comand) {
         
         print("comand 1")
-//        let infoComand = AppTaskComand(comand:comand,
-//                                       praser:GenericPraser(),
-//                                       delegate: self)
-//        infoComand.run()
+ 
     }
     
     
     public func  comand2(comand:Comand) {
         
         print("comand 2")
-//        let infoComand = AppTaskComand(comand:comand,
-//                                       praser:GenericPraser(),
-//                                       delegate: self)
-//        infoComand.run()
+ 
     }
     
     
@@ -146,18 +123,12 @@ class FireWall: ComandRunerDelegate,ComandRunerDelegate2 ,comandDelegate {
     public   func normalTimer()  {
         
         print("Normal Timer")
+        
+       
+        
         timerStart()
-//        timerStart2()
-//        runComands()
-//    let state = FireWallState()
-//    let fireWallStatePraser = StatePraser()
-//
-//    let fireWallState = AppTaskComand(comand:state, praser:fireWallStatePraser, delegate:self)
-//    fireWallState.run()
-        
-//       comandRuner.runComand(type:.fireWallState, ip: nil)
-        
-        
+         timerStart2()
+ 
  
     }
     
@@ -165,7 +136,7 @@ class FireWall: ComandRunerDelegate,ComandRunerDelegate2 ,comandDelegate {
     
  
     
-  
+    
     
    
   
@@ -173,37 +144,6 @@ class FireWall: ComandRunerDelegate,ComandRunerDelegate2 ,comandDelegate {
    
     
     
-    
-    //MARK: --------  ComandDelegate ---------------
-    func comand(finish: ComandType, result: Any) { //TODO: devolver comand con data prased o data tuple prased y comad type ??
-        
-        print("ComandDelegate finish")
-//        if finish == .netStat {
-//            needUpdateState = true
-//            needUpdateConections = false
-//        }else  if finish == .fireWallState {
-//            needUpdateState = false
-//            needUpdateConections = true
-//        }
-    }
-    
-    
-    
-    //MARK: --------  ComandRuner Delegate ---------------
-    func comand(finishWith data: String) {
-        print("ComandRuner Delegate finish")
-    }
-    
-    func comand(type:String, finishWith data: String) {
-        print("ComandRuner Delegate finish")
-//        print(type)
-    }
-    
-    
-    func comand2(type:String, finishWith data: String) {
-        print("ComandRuner2 Delegate2 finish")
-        //        print(type)
-    }
     
     
     
@@ -229,93 +169,54 @@ class FireWall: ComandRunerDelegate,ComandRunerDelegate2 ,comandDelegate {
     
     
     
-    private func backgroundTimer()  {
-//        isTimerRuning = true
-        
-        print("backgroundTimer")
-        
-        DispatchQueue.global(qos:.background).async{
-            let timer:Foundation.Timer = Foundation.Timer.scheduledTimer(timeInterval:2, target: self, selector: #selector(self.backgroundTimerAction(_:)), userInfo: nil, repeats: true);
-            //            print("State Timer  running on = \(Thread.isMainThread ? "Main Thread":"Background Thread")")
-            let runLoop:RunLoop = RunLoop.current;
-            runLoop.add(timer, forMode: RunLoopMode.defaultRunLoopMode);
-            runLoop.run();
-            
-        }
-    }
+    
+    
+  
     
     @objc func timerAction() {
      print("timer Action()")
-        runComands()
-//           runTask1()
-//        comandRuner.runComand(type:"fireWallState", ip: nil)
-//        runTask2()
+        
+        runComand(type:NetStat()) { (results, type) in
+//            print(results)
+//            print(type)
+            self.fireWallDelegate?.finish(data: results, type: type)
+        }
+        
+        
+  
     }
+    
+    
     
     @objc func timerAction2() {
         print("timer Action2()")
-//        runComands()
-         comandRuner2.runComand(type:"netStat", ip: nil)
-        //          runTask1()
-//                runTask2()
+ 
+        runComand(type:FireWallState()) { (results, type) in
+//            print(results)
+//            print(type)
+            self.fireWallDelegate?.finish(data: results, type: type)
+        }
+        
+  
     }
     
     
     
-    @objc func backgroundTimerAction(_ timer: Foundation.Timer) -> Void {
-        
-//        self.runComands()
-//        comandRuner.runComand(type:.fireWallState, ip: nil)
-        
-//        netStat2.run()
-        
-        print("Background TimerAction")
-        runTask1()
-        runTask2()
-//        runTask2()
-    }
+   
     
     
     
-    
-    private func runComands() {
-        
-        
-        runTask1()
-        runTask2()
-        
-    }
-
-    
+   
  
     func runTask1() {
         
-//         queue2 = DispatchQueue(label: "com.knowstack.queue1", qos:.background, attributes: .concurrent, autoreleaseFrequency: .inherit, target: DispatchQueue.global())
-//         queue2.sync {
-//            timerStart()
-        
-            comandRuner.runComand(type:"fireWallState", ip: nil)
-//         }
-        
-        
-//        for _ in 0..<1000 {
-//            print("runTask 1")
-//        }
+  
     }
     
     
     func runTask2() {
         
-//         queue1 = DispatchQueue(label: "com.knowstack.queue2", qos:.background, attributes: .concurrent, autoreleaseFrequency: .inherit, target: DispatchQueue.global())
-//         queue1.sync {
-        
-//            timerStart2()
-            comandRuner.runComand(type:"netStat", ip: nil)
-
-//        }
-//        for _ in 0..<1000 {
-//            print("runTask 2")
-//         }
+ 
     }
     
     

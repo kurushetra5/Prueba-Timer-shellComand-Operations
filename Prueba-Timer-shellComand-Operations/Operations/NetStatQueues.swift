@@ -28,17 +28,21 @@ class NetStatQueues  {
         let parseFireWallStateOperation =  ParseFireWallStateOperation()
         
         fireWallStateOperation.completionBlock = {
-//           print("fireWallStateOperation acabado")
-           parseFireWallStateOperation.responseData = fireWallStateOperation.responseData
+            print("fireWallState  acabado")
+//           parseFireWallStateOperation.responseData = fireWallStateOperation.responseData
+            
         }
 
         parseFireWallStateOperation.completionBlock = {
-            onCompleted?(parseFireWallStateOperation.resultData ?? "nada")
+            print("NetStat  acabado")
+             onCompleted?("Han Acabado los dos")
 //            print(parseFireWallStateOperation.resultData ?? "nada")
+            
         }
         
         parseFireWallStateOperation.addDependency(fireWallStateOperation)
-        operationQueue.addOperations([parseFireWallStateOperation, fireWallStateOperation], waitUntilFinished: false)
+        operationQueue.addOperations([parseFireWallStateOperation, fireWallStateOperation], waitUntilFinished:true)
+        
     }
 
     

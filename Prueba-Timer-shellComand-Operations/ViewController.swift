@@ -8,14 +8,81 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
 
+
+
+//class myTask {
+//
+//
+// var filenames: [String] = []
+//
+//    func getFilename(completion:@escaping ([String]) -> Void) {
+//
+//        let task = Process()
+//        task.launchPath = "/usr/local/bin/pip"
+//        task.arguments = ["list"]
+//        task.standardOutput = Pipe()
+//
+//        task.terminationHandler = { task in
+//            guard task.terminationStatus == 0
+//                else {
+//                    NSLog("The process fail to operate.")
+//                    return
+//            }
+//
+//            guard let data = (task.standardOutput as? Pipe)?.fileHandleForReading.availableData,
+//                data.count > 0,
+//                let s = String(data: data, encoding: .utf8)
+//                else { return }
+//
+//            self.filenames = s.components(separatedBy: "\n").filter{ !$0.contains("/.git/") }
+//
+//            DispatchQueue.main.sync {
+//                completion(self.filenames)
+//
+//            }
+//        }
+//        task.launch()
+//    }
+//
+//
+//}
+
+
+
+
+
+
+class ViewController: NSViewController,ComandsRunerDelegate   {
     
-    ///probar con singleton o sin
-    
-    var appController:FireWall = FireWall()
     
     
+    
+    func finish(comand: ComandType, withResult result: [String]) {
+        
+        if comand.rawValue == "fireWallState" {
+            let prase:StatePraser = StatePraser()
+            print(prase.prase(comandResult:result[0]))
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+ 
+    
+    var comandsRuner:ComandsRuner = ComandsRuner()
     
     
     
@@ -26,11 +93,11 @@ class ViewController: NSViewController {
     
     
     @IBAction func backgroundTimer(_ sender: Any) {
-        appController.startBackgroundTimer()
+        
     }
     
     @IBAction func normaltimer(_ sender: Any) {
-        appController.normalTimer()
+        comandsRuner.run(comand: NetStat(), forEver: true)
     }
     
     
@@ -38,7 +105,8 @@ class ViewController: NSViewController {
     
     
     @IBAction func operationsComands(_ sender: Any) {
-        appController.operations()
+ 
+        
     }
     
     
@@ -46,12 +114,12 @@ class ViewController: NSViewController {
     
     
     @IBAction func shellComand(_ sender: Any) {
-        appController.comand1(comand: NetStat())
+//        appController.comand1(comand: NetStat())
         
     }
     @IBAction func comadRuner(_ sender: Any) {
         
-        appController.comand2(comand: NetStat())
+//        appController.comand2(comand: NetStat())
        
     }
     
@@ -59,10 +127,10 @@ class ViewController: NSViewController {
     
     
     @IBAction func comad1(_ sender: Any) {
-           appController.runcomand1(comand:NetStat())
+      comandsRuner.run(comand: NetStat(), forEver: false)
     }
     @IBAction func comad2(_ sender: Any) {
-         appController.runcomand2(comand:FireWallState())
+      comandsRuner.run(comand:FireWallState(), forEver: true)
     }
     
     
@@ -79,30 +147,120 @@ class ViewController: NSViewController {
     
     
     
-    
-    
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
+        comandsRuner.comandsRunerDelegate = self
         
-      
+//        appController.runComand { (results) in
+//            print(results)
+//        }
+        
+        
+        
+//        let aTask:myTask = myTask()
+//        aTask.getFilename { (results) in
+//            print(results)
+//        }
     }
     
     
     
     
     
-    
-    
-    
-    
 
     
     
     
     
-    
-
-
 }
+
+
+
+
+
+//    let pip: () -> () = {
+//
+//        let task: Process = {
+//            let t = Process()
+//            t.launchPath = "/usr/local/bin/pip"
+//            t.arguments = ["list"]
+//            t.standardOutput = Pipe()
+//            return t
+//        }()
+//
+//
+//
+//
+//        let handle: (Process) -> () = { task in
+//            defer { CFRunLoopStop(CFRunLoopGetMain()) }
+//
+//            guard task.terminationStatus == 0,
+//                let data = (task.standardOutput as? Pipe)?.fileHandleForReading.availableData,
+//                data.count > 0,
+//                let s = String(data:data, encoding: .utf8)
+//                else {
+//                    return
+//
+//            }
+//
+//            let packages = s.components(separatedBy: "\n")
+//            //            resultado = packages
+//
+//
+//            for (i, package) in packages.enumerated() {
+//                print(i, package)
+//            }
+//        }
+//
+//
+//        task.terminationHandler = handle
+////        task.standardOutput
+//        task.launch()
+//    }
+
+
+
+//    func task() {
+//
+//        var resultado:[String]!
+//
+//        let task: Process = {
+//            let t = Process()
+//            t.launchPath = "/usr/local/bin/pip"
+//            t.arguments = ["list"]
+//            t.standardOutput = Pipe()
+//            return t
+//        }()
+//
+//
+//
+//        let handle: (Process) -> () = { task in
+//            defer { CFRunLoopStop(CFRunLoopGetMain()) }
+//
+//            guard task.terminationStatus == 0,
+//                let data = (task.standardOutput as? Pipe)?.fileHandleForReading.availableData,
+//                data.count > 0,
+//                let s = String(data:data, encoding: .utf8)
+//                else {
+//                    return
+//
+//            }
+//
+//            let packages = s.components(separatedBy: "\n")
+//            resultado = packages
+//
+////            for (i, package) in packages.enumerated() {
+////                print(i, package)
+////            }
+//        }
+//
+//
+//
+//        let pip: () -> () = { ()
+//
+//            task.terminationHandler = handle
+//            task.launch()
+//        }
+//
 

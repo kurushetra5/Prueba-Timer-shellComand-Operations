@@ -64,6 +64,10 @@ class  ComandRuner  {
     
     
     
+    
+    
+    
+    
   private  func run(comand:Comand ) {
  
         let task = Process()
@@ -78,15 +82,19 @@ class  ComandRuner  {
         let notificationCenter = NotificationCenter.default
     notificationCenter.addObserver(self, selector: #selector(receivedData), name: NSNotification.Name.NSFileHandleDataAvailable, object: nil)
         
-          task.terminationHandler = {task -> Void in
-            
+//           task.terminationHandler = {task -> Void in
+    
 //          print(comand)
-           print(self.comandType)
-           print(self.stateResult)
-             print("--------------")
-               self.comandRunerDelegate?.comand(type:self.comandType, finishWith:self.stateResult)
-            print("--------------")
-         }
+//           print(self.comandType)
+//           print(self.stateResult)
+//             print("--------------")
+            
+//             if self.stateResult != "no set" {
+//                 self.comandRunerDelegate?.comand(type:self.comandType, finishWith:self.stateResult)
+//             }
+    
+//            print("--------------")
+//           }
         task.launch()
     }
     
@@ -98,9 +106,9 @@ class  ComandRuner  {
         let fh:FileHandle = notif.object as! FileHandle
         
         let data = fh.availableData
-        if data.count > 1 { //TODO: buscar solucion
+         if data.count > 1 { //TODO: buscar solucion
             let string =  String(data: data, encoding: String.Encoding(rawValue: String.Encoding.ascii.rawValue))
-             self.stateResult = string!
+              self.stateResult = string!
 //            print(string ?? "na")
 //            print("--------------")
 //            print(self.comandType)
@@ -109,10 +117,10 @@ class  ComandRuner  {
 //              self.comandRunerDelegate?.comand(finishWith:string!)
             
             
-//             DispatchQueue.main.async {
-//                self.comandRunerDelegate?.comand(type:self.comandType, finishWith:string!)
-//             }
-            
+//             DispatchQueue.main.sync {
+                self.comandRunerDelegate?.comand(type:self.comandType, finishWith:string!)
+//              }
+//            self.comandRunerDelegate?.comand(type:self.comandType, finishWith:self.stateResult)
 
 //           DispatchQueue.global().sync {
 //                 self.comandRunerDelegate2?.comand2(type:self.comandType, finishWith:string!)
@@ -121,8 +129,8 @@ class  ComandRuner  {
             
 //              self.comandRunerDelegate?.comand(type:comandType, finishWith:string!)
 //             self.comandRunerDelegate2?.comand2(type:comandType, finishWith:string!)
-             fh.waitForDataInBackgroundAndNotify()
-         }
+//              fh.waitForDataInBackgroundAndNotify()
+          }
     }
     
     

@@ -16,7 +16,7 @@ class SampleCodes  {
     
     
     
-    var netStatQueues:NetStatQueues = NetStatQueues()
+//    var netStatQueues:NetStatQueues = NetStatQueues()
     
     
     
@@ -27,9 +27,9 @@ class SampleCodes  {
     
     
     func netstat() {
-        netStatQueues.getFireWallState { (state) in
-            print(state)
-        }
+//        netStatQueues.getFireWallState { (state) in
+//            print(state)
+//        }
     }
     
     
