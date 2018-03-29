@@ -7,17 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		610B0C79206C321F005E4688 /* KUShellTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610B0C60206C2BB5005E4688 /* KUShellTask.framework */; };
+		610B0C7A206C321F005E4688 /* KUShellTask.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 610B0C60206C2BB5005E4688 /* KUShellTask.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		618BF3482061A87A0074963D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618BF3472061A87A0074963D /* AppDelegate.swift */; };
 		618BF34A2061A87A0074963D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618BF3492061A87A0074963D /* ViewController.swift */; };
 		618BF34C2061A87A0074963D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 618BF34B2061A87A0074963D /* Assets.xcassets */; };
 		618BF34F2061A87A0074963D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 618BF34D2061A87A0074963D /* Main.storyboard */; };
-		618BF35A2061A8DB0074963D /* Comands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618BF3592061A8DB0074963D /* Comands.swift */; };
-		618BF35C2061A8F30074963D /* Prasers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618BF35B2061A8F30074963D /* Prasers.swift */; };
-		618BF35E2061A9240074963D /* IPLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618BF35D2061A9240074963D /* IPLocator.swift */; };
-		61C0D7A42064608A00BCF3CF /* ComandRuner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C0D7A32064608A00BCF3CF /* ComandRuner.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		610B0C5F206C2BB5005E4688 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 610B0C5B206C2BB4005E4688 /* KUShellTask.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 610B0C50206C2BB4005E4688;
+			remoteInfo = KUShellTask;
+		};
+		610B0C76206C31A4005E4688 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 610B0C5B206C2BB4005E4688 /* KUShellTask.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 610B0C4F206C2BB4005E4688;
+			remoteInfo = KUShellTask;
+		};
+		610B0C7B206C321F005E4688 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 610B0C5B206C2BB4005E4688 /* KUShellTask.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 610B0C4F206C2BB4005E4688;
+			remoteInfo = KUShellTask;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		610B0C7D206C321F005E4688 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				610B0C7A206C321F005E4688 /* KUShellTask.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		610B0C5B206C2BB4005E4688 /* KUShellTask.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KUShellTask.xcodeproj; path = KUShellTask/KUShellTask.xcodeproj; sourceTree = "<group>"; };
 		618BF3442061A87A0074963D /* Prueba-Timer-shellComand-Operations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prueba-Timer-shellComand-Operations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		618BF3472061A87A0074963D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		618BF3492061A87A0074963D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,10 +62,6 @@
 		618BF34E2061A87A0074963D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		618BF3502061A87A0074963D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		618BF3512061A87A0074963D /* Prueba_Timer_shellComand_Operations.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Prueba_Timer_shellComand_Operations.entitlements; sourceTree = "<group>"; };
-		618BF3592061A8DB0074963D /* Comands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comands.swift; sourceTree = "<group>"; };
-		618BF35B2061A8F30074963D /* Prasers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prasers.swift; sourceTree = "<group>"; };
-		618BF35D2061A9240074963D /* IPLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPLocator.swift; sourceTree = "<group>"; };
-		61C0D7A32064608A00BCF3CF /* ComandRuner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComandRuner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,17 +69,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				610B0C79206C321F005E4688 /* KUShellTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		610B0C5C206C2BB4005E4688 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				610B0C60206C2BB5005E4688 /* KUShellTask.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		610B0C63206C2CAF005E4688 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		618BF33B2061A87A0074963D = {
 			isa = PBXGroup;
 			children = (
+				610B0C5B206C2BB4005E4688 /* KUShellTask.xcodeproj */,
 				618BF3462061A87A0074963D /* Prueba-Timer-shellComand-Operations */,
 				618BF3452061A87A0074963D /* Products */,
+				610B0C63206C2CAF005E4688 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,24 +114,12 @@
 			children = (
 				618BF3472061A87A0074963D /* AppDelegate.swift */,
 				618BF3492061A87A0074963D /* ViewController.swift */,
-				618BF35F2061A9320074963D /* Comands */,
 				618BF34B2061A87A0074963D /* Assets.xcassets */,
 				618BF34D2061A87A0074963D /* Main.storyboard */,
 				618BF3502061A87A0074963D /* Info.plist */,
 				618BF3512061A87A0074963D /* Prueba_Timer_shellComand_Operations.entitlements */,
 			);
 			path = "Prueba-Timer-shellComand-Operations";
-			sourceTree = "<group>";
-		};
-		618BF35F2061A9320074963D /* Comands */ = {
-			isa = PBXGroup;
-			children = (
-				61C0D7A32064608A00BCF3CF /* ComandRuner.swift */,
-				618BF3592061A8DB0074963D /* Comands.swift */,
-				618BF35B2061A8F30074963D /* Prasers.swift */,
-				618BF35D2061A9240074963D /* IPLocator.swift */,
-			);
-			path = Comands;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,10 +132,13 @@
 				618BF3402061A87A0074963D /* Sources */,
 				618BF3412061A87A0074963D /* Frameworks */,
 				618BF3422061A87A0074963D /* Resources */,
+				610B0C7D206C321F005E4688 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				610B0C77206C31A4005E4688 /* PBXTargetDependency */,
+				610B0C7C206C321F005E4688 /* PBXTargetDependency */,
 			);
 			name = "Prueba-Timer-shellComand-Operations";
 			productName = "Prueba-Timer-shellComand-Operations";
@@ -135,12 +177,28 @@
 			mainGroup = 618BF33B2061A87A0074963D;
 			productRefGroup = 618BF3452061A87A0074963D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 610B0C5C206C2BB4005E4688 /* Products */;
+					ProjectRef = 610B0C5B206C2BB4005E4688 /* KUShellTask.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				618BF3432061A87A0074963D /* Prueba-Timer-shellComand-Operations */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		610B0C60206C2BB5005E4688 /* KUShellTask.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = KUShellTask.framework;
+			remoteRef = 610B0C5F206C2BB5005E4688 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		618BF3422061A87A0074963D /* Resources */ = {
@@ -159,16 +217,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				618BF35A2061A8DB0074963D /* Comands.swift in Sources */,
-				61C0D7A42064608A00BCF3CF /* ComandRuner.swift in Sources */,
 				618BF34A2061A87A0074963D /* ViewController.swift in Sources */,
-				618BF35C2061A8F30074963D /* Prasers.swift in Sources */,
 				618BF3482061A87A0074963D /* AppDelegate.swift in Sources */,
-				618BF35E2061A9240074963D /* IPLocator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		610B0C77206C31A4005E4688 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KUShellTask;
+			targetProxy = 610B0C76206C31A4005E4688 /* PBXContainerItemProxy */;
+		};
+		610B0C7C206C321F005E4688 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KUShellTask;
+			targetProxy = 610B0C7B206C321F005E4688 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		618BF34D2061A87A0074963D /* Main.storyboard */ = {
@@ -291,6 +358,7 @@
 		618BF3552061A87A0074963D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -306,6 +374,7 @@
 		618BF3562061A87A0074963D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;

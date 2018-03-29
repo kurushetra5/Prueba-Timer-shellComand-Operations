@@ -7,135 +7,40 @@
 //
 
 import Cocoa
+import KUShellTask
 
 
 
 
-//class myTask {
-//
-//
-// var filenames: [String] = []
-//
-//    func getFilename(completion:@escaping ([String]) -> Void) {
-//
-//        let task = Process()
-//        task.launchPath = "/usr/local/bin/pip"
-//        task.arguments = ["list"]
-//        task.standardOutput = Pipe()
-//
-//        task.terminationHandler = { task in
-//            guard task.terminationStatus == 0
-//                else {
-//                    NSLog("The process fail to operate.")
-//                    return
-//            }
-//
-//            guard let data = (task.standardOutput as? Pipe)?.fileHandleForReading.availableData,
-//                data.count > 0,
-//                let s = String(data: data, encoding: .utf8)
-//                else { return }
-//
-//            self.filenames = s.components(separatedBy: "\n").filter{ !$0.contains("/.git/") }
-//
-//            DispatchQueue.main.sync {
-//                completion(self.filenames)
-//
-//            }
-//        }
-//        task.launch()
-//    }
-//
-//
-//}
-
-
-
-
-
-
-class ViewController: NSViewController,ComandsRunerDelegate   {
-    
-    
-    
-    
-    func finish(comand: ComandType, withResult result: [String]) {
-        
-        if comand.rawValue == "fireWallState" {
-            let prase:StatePraser = StatePraser()
-            print(prase.prase(comandResult:result[0]))
-        }
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
+class ViewController: NSViewController {
  
-    
-    var comandsRuner:ComandsRuner = ComandsRuner()
-    
-    
-    
+
     @IBOutlet weak var salidaComando1: NSScrollView!
     @IBOutlet weak var salidaComando2: NSScrollView!
-    
-    
     
     
     @IBAction func backgroundTimer(_ sender: Any) {
         
     }
-    
     @IBAction func normaltimer(_ sender: Any) {
-        comandsRuner.run(comand: NetStat(), forEver: true)
+//        comandsRuner.run(comand: NetStat(), forEver: true)
     }
-    
-    
-    
-    
-    
     @IBAction func operationsComands(_ sender: Any) {
- 
-        
+
     }
-    
-    
-    
-    
     
     @IBAction func shellComand(_ sender: Any) {
-//        appController.comand1(comand: NetStat())
         
     }
     @IBAction func comadRuner(_ sender: Any) {
-        
-//        appController.comand2(comand: NetStat())
-       
     }
-    
-    
-    
     
     @IBAction func comad1(_ sender: Any) {
-      comandsRuner.run(comand: NetStat(), forEver: false)
+//      comandsRuner.run(comand: NetStat(), forEver: false)
     }
     @IBAction func comad2(_ sender: Any) {
-      comandsRuner.run(comand:FireWallState(), forEver: true)
+//      comandsRuner.run(comand:FireWallState(), forEver: true)
     }
-    
-    
-    
-    
     @IBAction func slider1(_ sender: NSSlider) {
         print("------ Slider -- 1")
         print(sender.integerValue)
@@ -147,28 +52,57 @@ class ViewController: NSViewController,ComandsRunerDelegate   {
     
     
     
+    
+    
  
+ 
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        comandsRuner.comandsRunerDelegate = self
         
-//        appController.runComand { (results) in
-//            print(results)
+       ComandsRuner.comandsRunerId = "nomeacuerdo87378737"
+        
+        
+        ComandsRuner.run(comand:"fireWallState", forEver: false) { (result) in
+            print(result)
+        }
+        
+        
+        
+//        ComandsRuner.run(comand:"mtRoute", forEver: false) { (result) in
+//            print(result)
+//        }
+        
+//        do {
+//            try ComandsRuner.setPraser(praser:algoPrasable())
+//
+//            ComandsRuner.run(comand:"fireWallState", forEver: false) { (result) in
+//                print(result)
+//            }
+//
+//        }
+//        catch let error as ComandsRunerError {
+//            print(error)
+//        }
+//        catch {
+//        print("""
+//        Something went wrong...
+//        NOT ha ComandsRunerError
+//        """)
 //        }
         
         
         
-//        let aTask:myTask = myTask()
-//        aTask.getFilename { (results) in
-//            print(results)
-//        }
+        
+ 
+        
     }
     
     
-    
-    
-    
-
+ 
     
     
     
@@ -176,6 +110,11 @@ class ViewController: NSViewController,ComandsRunerDelegate   {
 }
 
 
+struct algoPrasable:Prasable {
+    func prase(comandResult: String) -> Any {
+        return "Praseado"
+    }
+}
 
 
 
