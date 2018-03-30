@@ -63,7 +63,7 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       ComandsRuner.comandsRunerId = "nomeacuerdo87378737"
+       ComandsRuner.comandsRunerId = ""
         
         
         ComandsRuner.run(comand:"fireWallState", forEver: false) { (result) in
